@@ -10,11 +10,12 @@ import org.emrealtinay.entities.Customer;
 
 import java.time.LocalDate;
 
-public class Main
-{
+public class Main {
+
+    static InvoiceService invoiceService = new InvoiceManager(new InMemoryInvoiceDao());
+    static CustomerService customerService = new CustomerManager(new InMemoryCustomerDao());
+
     public static void main( String[] args ) {
-        InvoiceService invoiceService = new InvoiceManager(new InMemoryInvoiceDao());
-        CustomerService customerService = new CustomerManager(new InMemoryCustomerDao());
 
         System.out.println("Customers List:");
         customerService.add(new Customer("Diana05", LocalDate.of(2022,6,15)));
